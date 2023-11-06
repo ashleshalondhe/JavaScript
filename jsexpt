@@ -1,0 +1,378 @@
+JavaScript Practical’s 01:
+//Area of triangle,rectangle ,circle
+
+
+let b=parseInt(prompt("Enter the base  "))
+let h=parseInt(prompt("Enter the height "))
+
+area_of_triangle=0.5 * b *h
+console.log("area of triangle",area_of_triangle)
+
+
+let l=parseInt(prompt("Enter the length  "))
+let bd=parseInt(prompt("Enter the breadth "))
+
+area_of_rect= l* bd
+console.log("area of triangle",area_of_rect)
+
+
+let r=parseInt(prompt("Enter radius of circle"))
+area_of_circle=3.14 * r *r
+console.log("area of circle ", area_of_circle)
+
+JavaScript Practical’s 02:
+//multiplication table
+var n =parseInt(prompt("Enter a Number"))
+for(let i=1;i<=10;i++)
+{
+    console.log(n+ "*" +i, "=",+n*i)
+}
+
+JavaScript Practical’s 03:
+//1)reverse string
+function reverseString(str)
+{
+    let newStr=""
+    for(let i=str.length-1;i>=0;i--)
+    {
+        newStr += str[i];
+        
+    }
+    
+    return newStr;
+}
+
+var str=prompt("Enter a string")
+result =reverseString(str);
+console.log(result)
+
+// 2)Replace character of string
+
+let s="Ajinkya Ajit Jadhav"
+let result=s.replace("Ajinkya","vallabh")
+console.log(result)
+
+//3)Palindrome String
+let newStr=""
+function Palindrome(str){
+    for(let i=str.length-1;i>=0;i--){
+        newStr += str[i];
+    }
+    
+    if(newStr == str)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+var str=prompt("Enter a string")
+console.log(Palindrome(str))
+
+
+JavaScript Practical’s 04:
+//string 
+
+console.log("concept of String equality")
+var s1=8
+var s2="8"
+console.log(s1==s2)
+var s1=8
+var s2="8"
+console.log(s1===s2)
+
+
+console.log("string length comparison")
+var str1="Ajinkya"
+var str2="Ankit"
+console.log(str1.length > str2.length)
+console.log(str1.length < str2.length)
+
+
+console.log(" comapre string using localeCompare() ")
+var s1="Ajinkya"
+var s2="Ajinkya"
+console.log(s1.localeCompare(s2))
+var s3="Ankit"
+var s4="Ajinkya"
+console.log(s3.localeCompare(s4))
+
+
+JavaScript Practical’s 05:
+//create countdown program
+
+var x = setInterval(function() {
+
+// Set the date we're counting down to
+var countDownDate = new Date("sept 21, 2023 13:10:25").getTime()
+  // Get today's date and time
+  var now = new Date().getTime()
+   // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  console.log(days+" day "+hours+" hr "+minutes+" min "+seconds+" sec ")
+   
+   
+    if (distance < 0) {
+    clearInterval(x);
+    console.log("CountDown Finished");
+  }
+  
+},200);
+
+
+JavaScript Practical’s 06:
+//Array operations
+
+
+console.log("Removing Elements From array using pop()method")
+ //Removing Elements From array using pop()method
+ let arr=[1,2,23,34]
+ arr.pop();
+ console.log(arr)
+
+ //Removing Elements From array using Shift() method
+ console.log("Removing Elements From array using Shift() method")
+ 
+ let arr1=[1,2,3,4,5]
+  arr1.shift();
+ console.log(arr1)
+ 
+ //To check array contains specified value or not
+ console.log("To check array contains specified value or not")
+ let arr2=[1,2,3,4,5]
+ let res= arr2.includes(2)
+ console.log(res)
+  let arr3=[1,2,3,4,5]
+ let res2= arr.indexOf(2)
+ console.log(res2)
+ 
+ //To empty an array
+ console.log("TO empty an Array ")
+ function EmptArry(myarr)
+ {
+     myarr=[]
+     return myarr
+ }
+ const array = [1,2,3]
+console.log(array)
+const res3= EmptArry(array)
+console.log(res3)
+
+
+
+JavaScript Practical’s 07:
+//set operations
+
+
+
+//union
+function union (a,b){
+    let unionSet =new Set(a)
+    
+    for(i of b){
+        unionSet.add(i);
+    }
+    
+    return unionSet
+    
+}    
+
+const setA=new Set(['Ajinkya','Darshan','Pratik','Ankit'])
+const setB=new Set(['Tejal','Anushka','Ankit'])
+
+console.log(union(setA,setB))
+
+//intersection
+function intersection(A,B){
+    let interSet =new Set();
+    
+    for(let i of B){
+        if(A.has(i)){
+            interSet.add(i);
+        }
+    }
+    
+    return interSet
+}    
+
+const setA=new Set(['Ajinkya','Darshan','Pratik','Ankit'])
+const setB=new Set(['Tejal','Anushka','Ankit'])
+
+console.log(intersection(setA,setB))
+
+//difference operations
+
+function difference(a,b){
+    
+    let differ=new Set(b)
+    for(let i of a)
+    {
+        differ.delete(i);
+    }
+    return differ
+}
+const setA=new Set(['Ajinkya','Darshan','Pratik','Ankit'])
+const setB=new Set(['Tejal','Anushka','Ankit'])
+
+console.log(difference(setA,setB))
+
+//set subset operations
+
+function subSet(a,b){
+  
+    for(let i of b)
+    {
+        if(!a.has(i))
+        {
+            return false
+        }
+    }
+    return true; 
+   
+}
+const setA=new Set(['Ajinkya','Darshan','Pratik','Ankit'])
+const setB=new Set(['Ajinkya','Darshan'])
+
+console.log(subSet(setA,setB))
+
+
+JavaScript Practical’s 08:
+//mouse over event
+
+<html>
+<head>
+<script>
+/* script to set background color */
+function COLOR() {
+document.body.style.backgroundColor ="Red";
+}
+</script>
+</head>
+<button type="button" onmouseover="COLOR()">
+Button
+</button>
+</body>
+</html>
+
+//on focus Event
+
+<html>
+<head>
+<script>
+/* script to set background color */
+function COLOR() {
+document.body.style.backgroundColor ="Red";
+}
+</script>
+</head>
+<button type="button" onfocus="COLOR()">
+Button
+</button>
+</body>
+</html>
+
+
+JavaScript Practical’s 09:
+//student registration form
+
+<html>
+<head>
+<title> Student Registration Form </title>
+<script type="text/javascript">
+function validate(){
+if(document.myForm.First_Name.value=="")
+{
+alert("Please provide First Name !");
+  document.myForm.First_Name.focus(); return false;
+}
+if(document.myForm.Last_Name.value=="")
+{
+alert("Please provide Last Name !");
+document.myForm.Last_Name.focus(); return
+false;
+}
+if(document.myForm.Mobile.value=="")
+{
+alert("Please provide mobile number !!");
+document.myForm.Mobile.focus();
+return false;
+}
+if(document.myForm.Email.value=="")
+{
+alert("Please provide valid Email !!");
+document.myForm.Email.focus();
+return false;
+}
+if(document.myForm.Password.value==""){
+alert("Please Enter Password !!");
+document.myForm.Password.focus();
+return false;
+}
+return(true);
+  }
+</script>
+</head>
+<body>
+<form action = "#" name = "myForm" onSubmit = "return (validate())";>
+<h3 align = "center"> STUDENT REGISTRATION FORM
+</h3><table align = "center" cellpadding="9">
+
+<tr>
+<td> First Name : </td>
+<td>
+<input type = "text" name ="First_Name" placeholder="First Name" /></td>
+</tr>
+<tr>
+<td> Last Name : </td>
+<td>
+<input type = "text" name ="Last_Name" placeholder="Last Name" /></td>
+</tr>
+<tr>
+<td>Moblie No. </td>
+<td>
+<input type="text" name="Mobile" placeholder="Moblie Number" /></td>
+  </tr>
+<tr>
+<td> Email : </td>
+<td><input type="text" name="Email" placeholder="Email Id" /></td>
+</tr>
+<tr>
+<td> Password : </td>
+<td>
+<input type="Password"
+name="Password"
+placeholder="Password" />
+</td>
+</tr>
+
+<tr>
+    <td> 
+        <input type="submit" value="Submit">
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+JavaScript Practical’s 10:
+//recursion function  
+
+function countDown(number)
+{
+    
+    if(number ==0)
+    {
+        return;
+    }
+    console.log(number)
+    countDown(number -1)
+}
+
+countDown(4);
